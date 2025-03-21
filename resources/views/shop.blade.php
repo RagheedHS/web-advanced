@@ -387,7 +387,7 @@
                                     <use href="#icon_next_sm" />
                                 </svg></span>
                         </div>
-                        {{-- @if(Cart::instance("cart")->content()->Where('id',$product->id)->count()>0)
+                         @if(Cart::instance("cart")->content()->Where('id',$product->id)->count()>0)
                             <a href="{{route('cart.index')}}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart btn-warning">Go to Cart</a>
                         @else
                         <form name="addtocart-form" method="POST" action="{{route('cart.add')}}">
@@ -400,7 +400,7 @@
                                 <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart">Add to Cart</button>
                             </div>
                         </form>
-                        @endif                             --}}
+                        @endif                             
                     </div>
         
                     <div class="pc__info position-relative">
