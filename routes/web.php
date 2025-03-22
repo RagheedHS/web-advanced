@@ -19,6 +19,13 @@ Route::get('/shop/{product_slug}',[ShopController::class,'product_details'])->na
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 Route::post('/cart/store', [CartController::class, 'addToCart'])->name('cart.add');
 
+Route::put('/cart/increase-qunatity/{rowId}',[CartController::class,'increase_item_quantity'])->name('cart.increase.qty');
+Route::put('/cart/reduce-qunatity/{rowId}',[CartController::class,'reduce_item_quantity'])->name('cart.reduce.qty');
+Route::delete('/cart/remove/{rowId}',[CartController::class,'remove_item_from_cart'])->name('cart.remove');
+Route::delete('/cart/clear',[CartController::class,'empty_cart'])->name('cart.empty');
+
+
+
 
 
 Route::middleware(['auth'])->group(function () {  
@@ -36,11 +43,13 @@ Route::middleware(['auth', AuthAdmin::class])->group(function () {
     Route::delete('/admin/brand/{id}/delete',[AdminController::class,'delete_brand'])->name('admin.brand.delete');
 
     Route::get('/admin/categories',[AdminController::class,'categories'])->name('admin.categories');
-    Route::get('/admin/category/add',[AdminController::class,'add_category'])->name('admin.category.add');
-    Route::get('/admin/category/{id}/edit',[AdminController::class,'edit_category'])->name('admin.category.edit');
-    Route::put('/admin/category/update',[AdminController::class,'update_category'])->name('admin.category.update');
-    Route::delete('/admin/category/{id}/delete',[AdminController::class,'delete_category'])->name('admin.category.delete');
+     Route::get('/admin/category/add',[AdminController::class,'add_category'])->name('admin.category.add');
+     Route::post('/admin/category/store',[AdminController::class,'add_category_store'])->name('admin.category.store');
+     Route::get('/admin/category/{id}/edit',[AdminController::class,'edit_category'])->name('admin.category.edit');
+     Route::put('/admin/category/update',[AdminController::class,'update_category'])->name('admin.category.update');
+     Route::delete('/admin/category/{id}/delete',[AdminController::class,'delete_category'])->name('admin.category.delete');
 
+     
     Route::get('/admin/products', [AdminController::class, 'products'])->name('admin.products');  
     Route::get('/admin/product/add',[AdminController::class,'add_product'])->name('admin.product.add');
     Route::post('/admin/product/store',[AdminController::class,'product_store'])->name('admin.product.store');
