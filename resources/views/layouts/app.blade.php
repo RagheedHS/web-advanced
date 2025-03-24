@@ -391,11 +391,7 @@
   <header id="header" class="header header-fullwidth header-transparent-bg">
     <div class="container">
       <div class="header-desk header-desk_type_1">
-        {{-- <div class="logo">
-      <a href="{{route('home.index')}}">
-            <img src="" alt="logo" class="logo__image d-block" />
-          </a>
-        </div> --}}
+       
 
         <nav class="navigation">
           <ul class="navigation__list list-unstyled d-flex">
@@ -466,24 +462,7 @@
 
 
           
-          {{-- @guest
-          <div class="header-tools__item hover-container">
-              <a class="header-tools__item" href="{{route('login')}}">
-                <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_user" />
-                </svg>
-              </a>
-            </div>
-          @else
-            <div class="header-tools__item hover-container">
-              <a class="header-tools__item" href="{{ Auth::user()->utype=='ADM' ? route('admin.index') : route('user.account.dashboard')}}">
-                <span class="pr-6px">{{Auth::user()->name}}</span>
-                <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <use href="#icon_user" />
-                </svg>
-              </a>
-            </div>
-          @endif --}}
+          
 
           @guest
           <div class="header-tools__item hover-container">
@@ -496,7 +475,7 @@
           </div>
           @else
           <div class="header-tools__item hover-container">
-            <a href="{{Auth::user()->utype === 'ADM' ? route('admin.index') : route('user.index')}}" class="header-tools__item">
+            <a href="{{Auth::user()->utype === 'ADM' ? route('user.index') : route('admin.index')}}" class="header-tools__item">
               <span class="pr-6px">{{Auth::user()->name}}</span>
               <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
