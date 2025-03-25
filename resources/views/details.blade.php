@@ -368,13 +368,13 @@
         }
       }'>
                 <div class="swiper-wrapper">
-                    @foreach ($rproducts as $rproduct)
+                    @foreach ($products as $product)
                     <div class="swiper-slide product-card">
                         <div class="pc__img-wrapper">
                             <a href="details.php">
-                                <img loading="lazy" src="{{asset('uploads/products')}}/{{$rproduct->image}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img">
-                                @if(count(explode(",",$rproduct->images))>0)
-                                <img loading="lazy" src="{{asset('uploads/products')}}/{{trim(explode(",",$rproduct->images)[0])}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img pc__img-second">
+                                <img loading="lazy" src="{{asset('uploads/products')}}/{{$product->image}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img">
+                                @if(count(explode(",",$product->images))>0)
+                                <img loading="lazy" src="{{asset('uploads/products')}}/{{trim(explode(",",$product->images)[0])}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img pc__img-second">
                                 @endif
                             </a>
                             <button class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart js-open-aside" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
@@ -386,7 +386,7 @@
                                 <a href="{{route('shop.product.details',["product_slug"=>$product->slug])}}">{{$product->name}}</a>
                             </h6>
                             <div class="product-card__price d-flex">
-                                <span class="money price">${{$rproduct->regular_price}}</span>
+                                <span class="money price">${{$product->regular_price}}</span>
                             </div>
 
                             <button class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">

@@ -23,7 +23,7 @@
                     <em>Manage Your Items List</em>
                 </span>
             </a>
-            <a href="javascript:void();" class="checkout-steps__item">
+            <a href="{{route('cart.checkout')}}" class="checkout-steps__item ">
                 <span class="checkout-steps__item-number">02</span>
                 <span class="checkout-steps__item-title">
                     <span>Shipping and Checkout</span>
@@ -108,8 +108,6 @@
                     </tbody>
                 </table>
                 <div class="cart-table-footer">
-                    <input class="form-control" type="text" name="coupon_code" placeholder="Coupon Code">
-                            <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit" value="APPLY COUPON">                                                        
                             <form class="position-relative bg-body" method="POST" action="{{route('cart.empty')}}">
                                 @csrf
                                 @method('DELETE')
@@ -144,7 +142,7 @@
                     </div>
                     <div class="mobile_fixed-btn_wrapper">
                         <div class="button-wrapper container">
-                            <a href="#" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
+                            <a href="{{route('cart.checkout')}}" class="btn btn-primary btn-checkout">PROCEED TO CHECKOUT</a>
                         </div>
                     </div>
                 </div>

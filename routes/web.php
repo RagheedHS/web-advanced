@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/account-dashboard', [UserController::class, 'index'])->name('user.index');  
 }); 
 
-Route::middleware(['auth', AuthAdmin::class])->group(function () {  
+    Route::middleware(['auth', AuthAdmin::class])->group(function () {  
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');  
 
     Route::get('/admin/brands', [AdminController::class, 'brands'])->name('admin.brands');  
@@ -56,6 +56,12 @@ Route::middleware(['auth', AuthAdmin::class])->group(function () {
     Route::get('/admin/product/{id}/edit',[AdminController::class,'edit_product'])->name('admin.product.edit');
     Route::put('/admin/product/update',[AdminController::class,'update_product'])->name('admin.product.update');
     Route::delete('/admin/product/{id}/delete',[AdminController::class,'delete_product'])->name('admin.product.delete');
+
+    Route::get('/checkout',[CartController::class,'checkout'])->name('cart.checkout');
+    Route::post('/place-order',[CartController::class,'place_order'])->name('cart.place.order');
+    Route::get('/order-confirmation',[CartController::class,'confirmation'])->name('cart.confirmation');
+
+    Route::get('/admin/orders',[AdminController::class,'orders'])->name('admin.orders');
 
 
 

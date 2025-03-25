@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;  
@@ -14,7 +15,9 @@ use intervention\Image\Laravel\Facades\Image;
 class AdminController extends Controller  
 {  
     public function index() {  
-        return view('admin.index');  
+        $orders = Order::orderBy('created_at','DESC')->paginate(12);
+
+        return view('admin.index',compact('orders'));  
     }  
 
     public function brands()
@@ -366,6 +369,12 @@ public function delete_product($id)
     $product->delete();
     return redirect()->route('admin.products')->with('status','Record has been deleted successfully !');
 } 
+
+public function orders()
+{
+        $orders = Order::orderBy('created_at','DESC')->paginate(12);
+        return view("admin.orders",compact('orders'));
+}
 
 
 }  

@@ -7,7 +7,13 @@
         <div class="tf-section-1 mb-30">
             <div class="flex gap20 flex-wrap-mobile">
                 <div class="w-half">
-
+                    @php
+                        $totalOrders = $orders->count();
+                        $totalAmount = $orders->sum('total');
+                        $totalItems = $orders->sum(fn($order) => $order->orderItems->count());
+                        $averageOrderValue = $totalOrders > 0 ? $totalAmount / $totalOrders : 0;
+                        $totalTax = $orders->sum('tax');
+                    @endphp
                     <div class="wg-chart-default mb-20">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap14">
@@ -16,13 +22,11 @@
                                 </div>
                                 <div>
                                     <div class="body-text mb-2">Total Orders</div>
-                                    <h4>3</h4>
+                                    <h4>{{ $totalOrders }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                     <div class="wg-chart-default mb-20">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap14">
@@ -31,111 +35,43 @@
                                 </div>
                                 <div>
                                     <div class="body-text mb-2">Total Amount</div>
-                                    <h4>481.34</h4>
+                                    <h4>{{ number_format($totalAmount, 2) }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="wg-chart-default mb-20">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image ic-bg">
-                                    <i class="icon-shopping-bag"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Pending Orders</div>
-                                    <h4>3</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="wg-chart-default">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image ic-bg">
-                                    <i class="icon-dollar-sign"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Pending Orders Amount</div>
-                                    <h4>481.34</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
                 <div class="w-half">
-
                     <div class="wg-chart-default mb-20">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap14">
                                 <div class="image ic-bg">
-                                    <i class="icon-shopping-bag"></i>
+                                    <i class="icon-box"></i>
                                 </div>
                                 <div>
-                                    <div class="body-text mb-2">Delivered Orders</div>
-                                    <h4>0</h4>
+                                    <div class="body-text mb-2">Total Items Sold</div>
+                                    <h4>{{ $totalItems }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="wg-chart-default mb-20">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image ic-bg">
-                                    <i class="icon-dollar-sign"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Delivered Orders Amount</div>
-                                    <h4>0.00</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="wg-chart-default mb-20">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center gap14">
-                                <div class="image ic-bg">
-                                    <i class="icon-shopping-bag"></i>
-                                </div>
-                                <div>
-                                    <div class="body-text mb-2">Canceled Orders</div>
-                                    <h4>0</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                     <div class="wg-chart-default">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap14">
                                 <div class="image ic-bg">
-                                    <i class="icon-dollar-sign"></i>
+                                    <i class="icon-activity"></i>
                                 </div>
                                 <div>
-                                    <div class="body-text mb-2">Canceled Orders Amount</div>
-                                    <h4>0.00</h4>
+                                    <div class="body-text mb-2">Total Tax</div>
+                                    <h4>{{ number_format($totalTax, 2) }}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
-
         </div>
+
         <div class="tf-section mb-30 mt-0">
 
             <div class="wg-box">
@@ -167,29 +103,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td class="text-center">Divyansh Kumar</td>
-                                    <td class="text-center">1234567891</td>
-                                    <td class="text-center">$172.00</td>
-                                    <td class="text-center">$36.12</td>
-                                    <td class="text-center">$208.12</td>
-
-                                    <td class="text-center">ordered</td>
-                                    <td class="text-center">2024-07-11 00:54:14</td>
-                                    <td class="text-center">2</td>
-                                    <td></td>
-                                    <td class="text-center">
-                                        <a href="#">
-                                            <div class="list-icon-function view-icon">
-                                                <div class="item eye">
-                                                    <i class="icon-eye"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            @foreach ($orders as $order)
+                            <tr>
+                                <td class="text-center">{{"1" . str_pad($order->id,4,"0",STR_PAD_LEFT)}}</td>  
+                                <td class="text-center">{{$order->name}}</td>
+                                <td class="text-center">{{$order->phone}}</td>
+                                <td class="text-center">${{$order->subtotal}}</td>
+                                <td class="text-center">${{$order->tax}}</td>
+                                <td class="text-center">${{$order->total}}</td>
+                                {{-- <td class="text-center">
+                                    <p>{{$order->address}}</p>
+                                    <p>{{$order->locality}}</p>
+                                    <p>{{$order->city}}, {{$order->state}}, {{$order->zip}}</p>                                    
+                                </td> --}}
+                                <td class="text-center">{{$order->status}}</td>
+                                <td class="text-center">{{$order->created_at}}</td>
+                                <td class="text-center">{{$order->orderItems->count()}}</td>
+                                <td>{{$order->delivered_date}}</td>
+                                {{-- <td class="text-center">
+                                    <a href="{{route('admin.order.items',['order_id'=>$order->id])}}">
+                                    <div class="list-icon-function view-icon">
+                                        <div class="item eye">
+                                            <i class="icon-eye"></i>
+                                        </div>                                        
+                                    </div>
+                                    </a>
+                                </td> --}}
+                            </tr>
+                            @endforeach                                  
+                        </tbody>
                         </table>
                     </div>
                 </div>
