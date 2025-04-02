@@ -371,7 +371,7 @@
                     @foreach ($products as $product)
                     <div class="swiper-slide product-card">
                         <div class="pc__img-wrapper">
-                            <a href="details.php">
+                            <a href="{{route('shop.product.details',["product_slug"=>$product->slug])}}">
                                 <img loading="lazy" src="{{asset('uploads/products')}}/{{$product->image}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img">
                                 @if(count(explode(",",$product->images))>0)
                                 <img loading="lazy" src="{{asset('uploads/products')}}/{{trim(explode(",",$product->images)[0])}}" width="330" height="400" alt="Cropped Faux leather Jacket" class="pc__img pc__img-second">

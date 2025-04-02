@@ -415,7 +415,7 @@
 
         <div class="header-tools d-flex align-items-center">
           <div class="header-tools__item hover-container">
-            <div class="js-hover__open position-relative">
+            {{-- <div class="js-hover__open position-relative">
               <a class="js-search-popup search-field__actor" href="#">
                 <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -423,7 +423,7 @@
                 </svg>
                 <i class="btn-icon btn-close-lg"></i>
               </a>
-            </div>
+            </div> --}}
 
             <div class="search-popup js-hidden-content">
               <form action="#" method="GET" class="search-field container">
@@ -474,8 +474,8 @@
             </a>
           </div>
           @else
-          <div class="header-tools__item hover-container">
-            <a href="{{Auth::user()->utype === 'ADM' ? route('user.index') : route('admin.index')}}" class="header-tools__item">
+          <div class="header-tools__item hover-container ">
+            <a href="{{route('user.index')}}" class="header-tools__item ">
               <span class="pr-6px">{{Auth::user()->name}}</span>
               <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -484,13 +484,6 @@
             </a>
           </div>
           @endguest
-
-          <a href="wishlist.html" class="header-tools__item">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <use href="#icon_heart" />
-            </svg>
-          </a>
-
           
           <a href="{{route('cart.index')}}" class="header-tools__item header-tools__cart">
             <svg class="d-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

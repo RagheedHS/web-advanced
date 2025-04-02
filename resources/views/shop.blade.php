@@ -28,36 +28,12 @@
               aria-labelledby="accordion-heading-1" data-bs-parent="#categories-list">
               <div class="accordion-body px-0 pb-0 pt-3">
                 <ul class="list list-inline mb-0">
+                  @foreach ($categories as $category)
                   <li class="list-item">
-                    <a href="#" class="menu-link py-1">Dresses</a>
+                    <a href="#" class="menu-link py-1">{{$category->name}}</a>
                   </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Shorts</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Sweatshirts</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Swimwear</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Jackets</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">T-Shirts & Tops</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Jeans</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Trousers</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Men</a>
-                  </li>
-                  <li class="list-item">
-                    <a href="#" class="menu-link py-1">Jumpers & Cardigans</a>
-                  </li>
+                  @endforeach 
+                
                 </ul>
               </div>
             </div>
@@ -65,7 +41,7 @@
         </div>
 
 
-        <div class="accordion" id="color-filters">
+        {{-- <div class="accordion" id="color-filters">
           <div class="accordion-item mb-4 pb-3">
             <h5 class="accordion-header" id="accordion-heading-1">
               <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button" data-bs-toggle="collapse"
@@ -97,10 +73,10 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
 
-        <div class="accordion" id="size-filters">
+        {{-- <div class="accordion" id="size-filters">
           <div class="accordion-item mb-4 pb-3">
             <h5 class="accordion-header" id="accordion-heading-size">
               <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button" data-bs-toggle="collapse"
@@ -128,7 +104,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
 
 
         <div class="accordion" id="brand-filters">
@@ -158,7 +134,7 @@
         </div>
 
 
-        <div class="accordion" id="price-filters">
+        {{-- <div class="accordion" id="price-filters">
           <div class="accordion-item mb-4">
             <h5 class="accordion-header mb-2" id="accordion-heading-price">
               <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button" data-bs-toggle="collapse"
@@ -188,7 +164,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
 
       <div class="shop-list flex-grow-1">
@@ -251,26 +227,7 @@
                                 @endif
                             </span>
                         </div>
-                        <div class="product-card__review d-flex align-items-center">
-                            <div class="reviews-group d-flex">
-                                <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_star" />
-                                </svg>
-                                <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_star" />
-                                </svg>
-                                <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_star" />
-                                </svg>
-                                <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_star" />
-                                </svg>
-                                <svg class="review-star" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon_star" />
-                                </svg>
-                            </div>
-                            <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
-                        </div>
+                        
             
                     </div>
                 </div>

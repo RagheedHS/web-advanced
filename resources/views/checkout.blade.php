@@ -46,12 +46,7 @@
                         <div class="col-6">
                             <h4>SHIPPING DETAILS</h4> 
                         </div>
-                        <div class="col-6">
-                            @if($address)  
-                            <a href="{{route('user.account.addresses')}}" class="btn btn-info btn-sm float-right">Change Address</a> 
-                            <a href="{{route('user.account.address.edit',['address_id'=>$address->id])}}" class="btn btn-warning btn-sm float-right mr-3">Edit Address</a> 
-                            @endif
-                        </div>
+                        
                     </div>   
                     @if($address) 
                     <div class="row">

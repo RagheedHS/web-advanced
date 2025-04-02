@@ -16,6 +16,7 @@ class ShopController extends Controller
         $sorting = $request->query('sorting')?$request->query('sorting'):'default';	
         $f_brands = $request->query('brands');	
         $brands = Brand::orderBy('name','ASC')->get();
+        $categories = Category::Select('id','name')->orderBy('name')->get();
 
 
         if($sorting=='date')   
@@ -45,7 +46,7 @@ class ShopController extends Controller
             })		
             ->paginate($size);  
         }           	
-        return view('shop',compact("products","size","sorting","brands","f_brands"));
+        return view('shop',compact("products","size","sorting","brands","f_brands","categories"));
     }   
     public function product_details($product_slug)
     {
