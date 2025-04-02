@@ -136,11 +136,11 @@
                                                 <div class="text">Orders</div>
                                             </a>
                                         </li>
-                                        <li class="sub-menu-item">
+                                        {{-- <li class="sub-menu-item">
                                             <a href="order-tracking.html" class="">
                                                 <div class="text">Order tracking</div>
                                             </a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </li>
                               

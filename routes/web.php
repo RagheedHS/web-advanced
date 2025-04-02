@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;  
@@ -25,6 +26,15 @@ Route::delete('/cart/remove/{rowId}',[CartController::class,'remove_item_from_ca
 Route::delete('/cart/clear',[CartController::class,'empty_cart'])->name('cart.empty');
 
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::post('/submit-form', [ContactController::class, 'submitForm'])->name('submit.form');
 
 
 
