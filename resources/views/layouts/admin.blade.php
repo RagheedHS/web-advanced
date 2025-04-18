@@ -61,6 +61,12 @@
                             <div class="center-heading">Main Home</div>
                             <ul class="menu-list">
                                 <li class="menu-item">
+                                    <a href="{{ route('home.index') }}" class="">
+                                        <div class="icon"><i class="icon-home"></i></div>
+                                        <div class="text">Home</div>
+                                    </a>
+                                </li>
+                                <li class="menu-item">
                                     <a href="{{ route('admin.index') }}" class="">
                                         <div class="icon"><i class="icon-grid"></i></div>
                                         <div class="text">Dashboard</div>
@@ -162,13 +168,21 @@
                 <div class="section-content-right">
 
                    
-                    <div class="main-content">
+                    <div class="main-content" style="margin-bottom: 75px;">
                         @yield('content')
 
                       
 
 
-                        <div class="bottom-page">
+                        <div class="bottom-page" style="position:relative;
+                                                        left: 0;
+                                                        bottom: -80px;
+                                                        width: 100%;
+                                                        text-align: center;
+                        ">
+
+
+
                             <div class="body-text">Copyright © 2024 </div>
                         </div>
                     </div>

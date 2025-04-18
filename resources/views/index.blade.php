@@ -132,7 +132,7 @@
               @foreach ($categorys as $category)
 
                     <div class="swiper-slide">
-                      <img loading="lazy" class="w-100 h-auto mb-3" src="{{asset('uploads/categories')}}/{{$category->image}}" width="124"
+                      <img loading="lazy" style="border-radius: 100px;" class="w-100 h-auto mb-3" src="{{asset('uploads/categories')}}/{{$category->image}}" width="124"
                         height="124" alt="" />
                       <div class="text-center">
                         <a href="#" class="menu-link fw-medium">{{$category->name}}</a>
