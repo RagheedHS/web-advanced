@@ -286,7 +286,7 @@
               </div>
               <div class="category-banner__item-content">
                 <h3 class="mb-0">Blazers</h3>
-                <a href="#" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
+                <a href="{{route('shop.index')}}" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
               </div>
             </div>
           </div>
@@ -299,7 +299,7 @@
               </div>
               <div class="category-banner__item-content">
                 <h3 class="mb-0">Sportswear</h3>
-                <a href="#" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
+                <a href="{{route('shop.index')}}" class="btn-link default-underline text-uppercase fw-medium">Shop Now</a>
               </div>
             </div>
           </div>
