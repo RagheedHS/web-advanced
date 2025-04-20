@@ -83,7 +83,7 @@ class InitialDataSeeder extends Seeder
                 'id' => 4,  // Added this category which products reference
                 'name' => 'jackets',
                 'slug' => 'jackets',
-                'image' => 'default.png',
+                'image' => '1743428130.png',
                 'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now()
@@ -92,16 +92,16 @@ class InitialDataSeeder extends Seeder
                 'id' => 6,  // Added this category which products reference
                 'name' => 'dresses',
                 'slug' => 'dresses',
-                'image' => 'default.png',
+                'image' => '1743427986.png',
                 'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'id' => 8,  // Added this category which products reference
-                'name' => 'tops',
-                'slug' => 'tops',
-                'image' => 'default.png',
+                'name' => 'T-shirt',
+                'slug' => 'T-shirt',
+                'image' => '1743427713.png',
                 'parent_id' => null,
                 'created_at' => now(),
                 'updated_at' => now()

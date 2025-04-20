@@ -15,16 +15,16 @@ class AuthAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next  
      */  
     public function handle(Request $request, Closure $next): Response  
-    {  
-        if(Auth::check()){  
-            if(Auth::user()->Utype == 'ADM'){  
-                return $next($request);  
-            } else {  
-                session()->flush();  
-                return redirect()->route('login');  
-            }  
+{  
+    if(Auth::check()){  
+        if(Auth::user()->Utype == 'ADM' || $request->is('cart*')) {  
+            return $next($request);  
         } else {  
+            session()->flush();  
             return redirect()->route('login');  
         }  
+    } else {  
+        return redirect()->route('login');  
     }  
-}  
+}
+}
