@@ -68,7 +68,7 @@ class InitialDataSeeder extends Seeder
             ]
         ]);
 
-        // Categories
+        // Categories - Added missing categories that products reference
         DB::table('categories')->insert([
             [
                 'id' => 3,
@@ -79,7 +79,33 @@ class InitialDataSeeder extends Seeder
                 'created_at' => '2025-03-31 10:26:50',
                 'updated_at' => '2025-03-31 10:26:50'
             ],
-            // ... (include all your categories from previous example)
+            [
+                'id' => 4,  // Added this category which products reference
+                'name' => 'jackets',
+                'slug' => 'jackets',
+                'image' => 'default.png',
+                'parent_id' => null,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 6,  // Added this category which products reference
+                'name' => 'dresses',
+                'slug' => 'dresses',
+                'image' => 'default.png',
+                'parent_id' => null,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => 8,  // Added this category which products reference
+                'name' => 'tops',
+                'slug' => 'tops',
+                'image' => 'default.png',
+                'parent_id' => null,
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
             [
                 'id' => 10,
                 'name' => 'women clothes',
@@ -91,7 +117,7 @@ class InitialDataSeeder extends Seeder
             ]
         ]);
 
-        // Products
+        // Products - Updated some to be featured so they appear on homepage
         DB::table('products')->insert([
             [
                 'id' => 12,
@@ -103,11 +129,11 @@ class InitialDataSeeder extends Seeder
                 'sale_price' => 1500.00,
                 'SKU' => 'skt1001',
                 'stock_status' => 'instock',
-                'featured' => 0,
+                'featured' => 1,  // Changed to featured
                 'quantity' => 5,
                 'image' => '1745060181.jpg',
                 'images' => '',
-                'category_id' => 6,
+                'category_id' => 6,  // Now valid category
                 'brand_id' => 6,
                 'created_at' => '2025-04-19 07:56:21',
                 'updated_at' => '2025-04-19 07:56:21'
@@ -122,11 +148,11 @@ class InitialDataSeeder extends Seeder
                 'sale_price' => 62.00,
                 'SKU' => 'skt1001',
                 'stock_status' => 'instock',
-                'featured' => 0,
+                'featured' => 1,  // Changed to featured
                 'quantity' => 5,
                 'image' => '1745060581.jpg',
                 'images' => '1745060581-1.jpg',
-                'category_id' => 4,
+                'category_id' => 4,  // Now valid category
                 'brand_id' => 7,
                 'created_at' => '2025-04-19 08:03:02',
                 'updated_at' => '2025-04-19 08:03:02'
@@ -145,7 +171,7 @@ class InitialDataSeeder extends Seeder
                 'quantity' => 11,
                 'image' => '1745060679.jpg',
                 'images' => '',
-                'category_id' => 4,
+                'category_id' => 4,  // Now valid category
                 'brand_id' => 8,
                 'created_at' => '2025-04-19 08:04:39',
                 'updated_at' => '2025-04-19 08:04:39'
@@ -160,11 +186,11 @@ class InitialDataSeeder extends Seeder
                 'sale_price' => 70.00,
                 'SKU' => 'skt1001',
                 'stock_status' => 'instock',
-                'featured' => 0,
+                'featured' => 1,  // Changed to featured
                 'quantity' => 11,
                 'image' => '1745060765.jpg',
                 'images' => '',
-                'category_id' => 6,
+                'category_id' => 6,  // Now valid category
                 'brand_id' => 7,
                 'created_at' => '2025-04-19 08:06:05',
                 'updated_at' => '2025-04-19 08:06:05'
@@ -183,7 +209,7 @@ class InitialDataSeeder extends Seeder
                 'quantity' => 12,
                 'image' => '1745060879.jpg',
                 'images' => '1745060879-1.jpg',
-                'category_id' => 4,
+                'category_id' => 4,  // Now valid category
                 'brand_id' => 8,
                 'created_at' => '2025-04-19 08:08:00',
                 'updated_at' => '2025-04-19 08:08:00'
@@ -202,11 +228,11 @@ class InitialDataSeeder extends Seeder
                 'quantity' => 12,
                 'image' => '1745061602.jpg',
                 'images' => '',
-                'category_id' => 8,
+                'category_id' => 8,  // Now valid category
                 'brand_id' => 7,
                 'created_at' => '2025-04-19 08:20:02',
                 'updated_at' => '2025-04-19 08:20:02'
             ]
-        ]);
+      ]);
     }
 }
